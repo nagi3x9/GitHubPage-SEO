@@ -35,6 +35,11 @@ jobs:
 
       - name: Build (Next.js static export)
         run: npm run build
+        env:
+          NEXT_PUBLIC_GITHUB_OWNER: ${{ github.repository_owner }}
+          NEXT_PUBLIC_GITHUB_REPO: ${{ github.event.repository.name }}
+          NEXT_PUBLIC_GITHUB_BRANCH: main
+          NEXT_PUBLIC_GITHUB_TOKEN: ${{ secrets.BLOG_PUBLISH_TOKEN }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

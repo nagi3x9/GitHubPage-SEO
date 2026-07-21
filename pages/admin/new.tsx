@@ -44,7 +44,8 @@ export default function NewPostPage() {
 
       {CAN_PUBLISH_TO_GITHUB && (
         <p className="hint">
-          この環境では検証用に、GitHubへ直接コミットして本番サイトに反映する機能が有効になっています(ローカル限定)。
+          ⚠️ デモ用機能:「GitHubへ本当に投稿する」は、書き込み権限を持つトークンをこのページのJavaScriptに直接埋め込んでいます。
+          ログイン機構のない検証用の実装のため、このサイトを見た人は誰でもこのトークンを使ってリポジトリに書き込めます。
         </p>
       )}
 
