@@ -89,6 +89,22 @@ h2 {
   text-decoration: underline;
 }
 
+.delete-link {
+  float: right;
+  background: none;
+  border: none;
+  color: inherit;
+  opacity: 0.6;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.delete-link:hover {
+  opacity: 1;
+}
+
 .post-date {
   display: block;
   font-size: 0.8rem;

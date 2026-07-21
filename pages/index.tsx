@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import Layout from '@/components/Layout';
 import { getSortedPostsMeta, PostMeta } from '@/lib/posts';
-import { getLocalPosts, LocalPost } from '@/lib/localPosts';
+import { getLocalPosts, deleteLocalPost, LocalPost } from '@/lib/localPosts';
 
 type Props = {
   posts: PostMeta[];
@@ -15,6 +15,11 @@ export default function Home({ posts }: Props) {
   useEffect(() => {
     setLocalPosts(getLocalPosts());
   }, []);
+
+  function handleDelete(id: string) {
+    deleteLocalPost(id);
+    setLocalPosts(getLocalPosts());
+  }
 
   return (
     <Layout>
@@ -29,6 +34,9 @@ export default function Home({ posts }: Props) {
                 <span className="badge">下書き</span>
                 <Link href={`/draft/?id=${post.id}`}>{post.title}</Link>
                 <span className="post-date">{post.date}</span>
+                <button type="button" className="delete-link" onClick={() => handleDelete(post.id)}>
+                  削除
+                </button>
               </li>
             ))}
           </ul>
